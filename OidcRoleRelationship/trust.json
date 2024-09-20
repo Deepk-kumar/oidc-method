@@ -1,21 +1,21 @@
 {
-	"Version": "2012-10-17",
-	"Statement": [
-		{
-			"Effect": "Allow",
-			"Principal": {
-				"Federated": "arn:aws:iam::058264394137:oidc-provider/token.actions.githubusercontent.com"
-			},
-			"Action": "sts:AssumeRoleWithWebIdentity",
-			"Condition": {
-				"StringEquals": {
-					"token.actions.githubusercontent.com:sub": [
-						"repo:deepk-kumar/oidc-method:pull_request",
-						"repo:deepk-kumar/oidc-method:ref:refs/heads/main"
-					],
-					"token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
-				}
-			}
-		}
-	]
-}
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "Federated": "arn:aws:iam::058264394137:oidc-provider/token.actions.githubusercontent.com"
+        },
+        "Action": "sts:AssumeRoleWithWebIdentity",
+        "Condition": {
+          "StringLike": {
+            "token.actions.githubusercontent.com:sub": "repo:deepk-kumar/oidc-method:ref:refs/heads/main"
+          },
+          "StringEquals": {
+            "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+          }
+        }
+      }
+    ]
+  }
+  

@@ -16,7 +16,7 @@ jobs:
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}    # Use the secret storing your role ARN
+          role-to-assume: arn:aws:iam::058264394137:role/oidc-deepak-kumar   # Use the secret storing your role ARN
           role-session-name: samplerolesession
           aws-region: ${{ env.AWS_REGION }}
           audience: sts.amazonaws.com    # Ensure this matches the trust policy audience
